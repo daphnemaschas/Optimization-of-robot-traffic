@@ -1,0 +1,8 @@
+# Data processing
+numpy
+
+# RL
+pettingzoo[mpe] 
+
+# DL
+torch
