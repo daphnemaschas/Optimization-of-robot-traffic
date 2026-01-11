@@ -1,3 +1,7 @@
+# Testing and Clean code
+pytest
+pylint
+
 # Data processing
 numpy
 
