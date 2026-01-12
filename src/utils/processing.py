@@ -4,7 +4,7 @@ Module for reward processing and advantage estimation.
 
 import torch
 
-def compute_returns(rewards, is_terminals, gamma=0.99, normalize=True):
+def compute_returns(rewards, is_terminals, gamma=0.99, normalize=False):
     """
     Computes the discounted cumulative returns for each time step.
     Formula: G_t = r_t + gamma * G_{t+1}
