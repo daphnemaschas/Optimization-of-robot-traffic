@@ -1,0 +1,7 @@
+robot_traffic:
+  n_agents: 3
+  obs_dim: 18
+  action_dim: 5
+  lr: 1e-3
+  episodes: 100
+  steps_per_episode: 25
