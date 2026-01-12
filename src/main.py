@@ -16,7 +16,7 @@ with open("config.yaml", "r") as f:
     config = yaml.safe_load(f)["robot_traffic"]
 
 def main():
-    # --- 1. Configuration ---
+    # Configuration
     N_AGENTS = config["n_agents"]
     OBS_DIM = config["obs_dim"]
     ACTION_DIM = config["action_dim"]
@@ -43,10 +43,12 @@ def main():
     # Training Loop
     for episode in range(EPISODES):
         # Collect experience
-        collect_data(env, actor, memory, num_episodes=1)
+        collect_data(env, actor, memory, num_episodes=1, max_steps=STEPS_PER_EPISODE)
         
         # Update models
-        update_model(actor, critic, memory, actor_opt, critic_opt)
+        update_model(actor, critic, memory, actor_opt, 
+                     critic_opt, config["gamma"], config["ppo_clip"],
+                     config["update_epochs"])
         
         if episode % 10 == 0:
             print(f"Episode {episode} completed.")
